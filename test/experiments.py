@@ -1,4 +1,4 @@
-import hmms-custom as hmms
+import hmms
 import numpy as np
 import time
 import numpy
