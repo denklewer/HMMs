@@ -9,6 +9,7 @@ Discrete-time hidden Markov model class
 
 import numpy
 import random
+import logging
 cimport numpy
 cimport cython
 
@@ -458,6 +459,8 @@ cdef class DtHMM:
 
         if isinstance(data, list): seq_num = len(data)  #list of numpy vectors
         else: seq_num = data.shape[0]                   #numpy matrix
+        logging.info(f'Train candidate model')
+        logging.info(f'model params {s_num},{o_num}')
 
 
         if est:
@@ -467,7 +470,7 @@ cdef class DtHMM:
 
 
 
-            print("iteration ", it+1, "/", iterations )
+            logging.info(f'Training: iteration {it + 1} / {iterations}')
 
             ksi_sum = numpy.full( ( s_num, s_num ) , numpy.log(0), dtype=numpy.float64 )
             obs_sum = numpy.full( ( s_num, o_num ) , numpy.log(0), dtype=numpy.float64 )  #numpy can samewhat handle infinities or at least exp(log(0)) = 0
@@ -542,7 +545,7 @@ cdef class DtHMM:
 
     def meow(self):
         """Make the DtHMM to meow"""
-        print('meow!')
+        print('meow! test 2')
 
 
 def main():

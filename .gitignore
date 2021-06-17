@@ -18,4 +18,5 @@ Models/
 .eggs/
 build/
 docs/_*
+*.pyd
 
